@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install the dependencies
+RUN apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port the app runs on (if applicable, change as needed)
